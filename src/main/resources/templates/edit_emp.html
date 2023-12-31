@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymleaf.org" th:replace="~{base :: Layout(~{::title},~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Edit Emp Form</title>
+
+</head>
+<body>
+	
+
+<section>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <p class="fs-4">Edit Employee </p>
+                        <th:block th:if="${session.msg}">
+							
+							<p class="text-center text-success fs-4">[[${session.msg}]]</p>
+							
+							<th:block th:text="${@empServiceimpl.removeSessionMessage}"></th:block>
+						</th:block>
+                    </div>
+                    <div class="card-body">
+                        <form action="/updateDetails" method="post">
+							<input type="hidden" name="id" th:value="${emp.id}" >
+                            <div class="mb-3">
+                                <label for="fullname" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullname" placeholder="Enter Full Name" name="name" th:value="${emp.name}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Your Email" name="email" th:value="${emp.email}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="address" class="form-control" id="address" name="address" th:value="${emp.address}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Gender</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked th:attr="checked=${emp.gender=='Male' ? 'checked': ''}" required>
+                                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female" checked th:attr="checked=${emp.gender=='Female' ? 'checked': ''}" required>
+                                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="salary" class="form-label">Salary</label>
+                                <input type="number" class="form-control" id="salary" th:value="${emp.salary}" placeholder="Enter Your Salary" name="salary" required> 
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" th:value="${emp.password}" placeholder="Enter Your Password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+	
+
+</body>
+</html>
