@@ -57,4 +57,4 @@ This structure ensures a clean separation between backend and frontend concerns,
 
 ## Screenshots
 
-![Employee Management System](path/to/your/screenshot.png)
+![Employee Management System](https://github.com/ShravanThakare/employee-management-fullstack/assets/108409480/4aecd7d8-24b2-4bb2-9841-05f65fcf5c1b)
